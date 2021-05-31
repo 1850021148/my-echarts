@@ -1,0 +1,226 @@
+/* all */
+@font-face {
+  font-family: electronic;
+  src: url('./font/DS-DIGIT.TTF');
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+html, body, #app {
+  width: 100%;
+  height: 100%;
+  // min-width: 1500px;
+  // min-height: 580px;
+  overflow: hidden;
+}
+h2 {
+  padding: 5px;
+  font-size: 18px;
+  text-align: center;
+}
+
+/* app */
+#app {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  background: radial-gradient(rgb(46,17,235), rgb(17,9,147), rgb(3,4,64), rgb(17,17,69));
+}
+
+/* header */
+header {
+  padding: 10px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(16,16,69);
+  .title {
+    font-size: 24px;
+  }
+  .time {
+    position: absolute;
+    right: 100px;
+    color: lightgray;
+  }
+}
+
+/* main */
+main {
+  flex: 1;
+  display: flex;
+  /* left, right */
+  &>.left, &>.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 25%;
+    height: 100%;
+    .col {
+      width: calc( 100% - 10px );
+      height: calc( 33.3% - 4 * 3px );
+      .echarts-item {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, .02);
+        .inner {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          height: 100%;
+          background-repeat: repeat;
+          background-size: contain;
+          #echarts1, #echarts2, #echarts3, #echarts5, #echarts6, #echarts7 {
+            flex: 1;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  /* center */
+  &>.center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* center => yop-box */
+    &>.top-box {
+      overflow: hidden;
+      margin: 5px;
+      margin-top: 20px;
+      background-color: rgba(255, 255, 255, .05);
+      height: 130px;
+      .number-box {
+        padding: 8px 0;
+        margin: 15px;
+        position: relative;
+        font-size: 0;
+        border: 1px solid rgba(25, 186, 139, 0.2);
+        &>span {
+          display: inline-block;
+          width: 50%;
+          text-align: center;
+          font-size: 50px;
+          color: #FFEB7B;
+          font-family: electronic;
+          font-weight: bold;
+          border-left: 2px solid rgba(25, 186, 139, 0.2);
+          box-sizing: border-box;
+        }
+      }
+      .content {
+        font-size: 0;
+        &>span {
+          display: inline-block;
+          width: 50%;
+          text-align: center;
+          font-size: 16px;
+          color: lightgray;
+        }
+      }
+    }
+    /* center => core */
+    &>.core {
+      flex: 1;
+      width: 100%;
+      position: relative;
+      #echarts4 {
+        width: 100%;
+        height: 100%;
+      }
+      .img_internet-map, .img_map, .img_arrow {
+        transform-origin: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .img_internet-map {
+        width: 30vw;
+        animation: rotate-right 15s linear infinite;
+      }
+      .img_map {
+        width: 25vw;
+        opacity: .2;
+      }
+      .img_arrow {
+        width: 27.5vw;
+        opacity: .7;
+        animation: rotate-left 15s linear infinite;
+      }
+      @keyframes rotate-left {
+        from {
+          transform: translate(-50%, -50%) rotate(0);
+        }
+        to {
+          transform: translate(-50%, -50%) rotate(-360deg);
+        }
+      }
+      @keyframes rotate-right {
+        from {
+          transform: translate(-50%, -50%) rotate(0);
+        }
+        to {
+          transform: translate(-50%, -50%) rotate(360deg);
+        }
+      }
+    }
+  }
+}
+
+/* corner */
+.top-corner-box {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  &::after {
+    .corner(top, left);
+  }
+  &::before {
+    .corner(top, right);
+  }
+}
+.bottom-corner-box {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  &::after {
+    .corner(bottom, left);
+  }
+  &::before {
+    .corner(bottom, right);
+  }
+}
+.top-left-corner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  &::after {
+    .corner(top, left);
+  }
+}
+.bottom-right-corner {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  &::after {
+    .corner(bottom, right);
+  }
+}
+.corner(@direction1: top, @direction2: left) {
+  content: "";
+  position: absolute;
+  @{direction1}: 0;
+  @{direction2}: 0;
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-@{direction1}: 2px solid blue;
+  border-@{direction2}: 2px solid blue;
+}

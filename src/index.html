@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+</head>
+<body>
+  <div id="app">
+
+    <header>
+      <h1 class="title">数据可视化展板-echarts</h1>
+      <span class="time">当前时间: </span>
+    </header>
+
+    <main>
+
+      <div class="left">
+        <div class="col">
+          <div class="echarts-item">
+            <div class="top-corner-box"></div>
+            <div class="bottom-corner-box"></div>
+            <div class="inner">
+              <h2>柱状图-就业行业</h2>
+              <div id="echarts1"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="echarts-item">
+            <div class="top-corner-box"></div>
+            <div class="bottom-corner-box"></div>
+            <div class="inner">
+              <h2>折线图-人员变化</h2>
+              <div id="echarts2"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="echarts-item">
+            <div class="top-corner-box"></div>
+            <div class="bottom-corner-box"></div>
+            <div class="inner">
+              <h2>饼形图-年龄分布</h2>
+              <div id="echarts3"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="center">
+        <div class="top-box">
+          <div class="number-box">
+            <div class="top-left-corner"></div>
+            <div class="bottom-right-corner"></div>
+            <span>125811</span>
+            <span>104563</span>
+          </div>
+          <div class="content">
+            <span>前端需求人数</span>
+            <span>市场供应人数</span>
+          </div>
+        </div>
+        <div class="core">
+          <img class="img_map" />
+          <img class="img_internet-map" />
+          <img class="img_arrow" />
+          <div id="echarts4"></div>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="col">
+          <div class="echarts-item">
+            <div class="top-corner-box"></div>
+            <div class="bottom-corner-box"></div>
+            <div class="inner">
+              <h2>柱状图-技能掌握</h2>
+              <div id="echarts5"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="echarts-item">
+            <div class="top-corner-box"></div>
+            <div class="bottom-corner-box"></div>
+            <div class="inner">
+              <h2>折线图-播放量</h2>
+              <div id="echarts6"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="echarts-item">
+            <div class="top-corner-box"></div>
+            <div class="bottom-corner-box"></div>
+            <div class="inner">
+              <h2>饼形图-地区分布</h2>
+              <div id="echarts7"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
